@@ -1,3 +1,4 @@
+import FacebookIcon from '@mui/icons-material/Facebook'; // Add Facebook icon
 import GitHubIcon from '@mui/icons-material/GitHub';
 import PublishIcon from "@mui/icons-material/Publish";
 import GetAppIcon from '@mui/icons-material/GetApp';
@@ -292,19 +293,34 @@ function App() {
                     width: 'calc(100% - 2rem)',
                     margin: '1rem',
                     height: 'fit-content',
-                    padding: '1rem',
+                    padding: '1.5rem 2rem',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    background: 'linear-gradient(90deg, #101828 80%, #2563eb 100%)',
+                    boxShadow: '0 6px 32px rgba(37,99,235,0.18)'
                 }}>
-                    <div className="mdui-prose" style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                        <h3 style={{ marginBottom: 0 }}>C3C UFC Utility</h3>
-                        <small style={{ color: 'gray', marginTop: '10px' }}>v2.0.1</small>
+                    <div className="mdui-prose" style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                        <h2 style={{
+                            marginBottom: 0,
+                            fontWeight: 700,
+                            letterSpacing: '0.04em',
+                            color: '#3b82f6',
+                            fontSize: '2.1rem',
+                            textShadow: '0 2px 8px #16213e'
+                        }}>ZetBot-Cookie</h2>
+                        <span style={{
+                            color: '#a5b4cb',
+                            marginTop: '2px',
+                            fontSize: '1.05rem',
+                            fontWeight: 400,
+                            letterSpacing: '0.02em'
+                        }}>Gestionnaire UFC Facebook — v2.0.1</span>
                     </div>
                     <div>
-                        <mdui-tooltip content="Fork me on GitHub" placement='bottom-end'>
-                            <mdui-button-icon href='https://github.com/c3cbot/c3c-ufc-utility' target='_blank' rel="noreferrer">
-                                <GitHubIcon />
+                        <mdui-tooltip content="Voir le profil Facebook" placement='bottom-end'>
+                            <mdui-button-icon href='https://www.facebook.com/profile.php?id=61576203489525' target='_blank' rel="noreferrer">
+                                <FacebookIcon style={{ color: "#3b82f6" }} />
                             </mdui-button-icon>
                         </mdui-tooltip>
                     </div>
@@ -312,25 +328,25 @@ function App() {
                 <div className="content">
                     <div className="action">
                         <mdui-button onClick={handleImport} variant='tonal' slot="trigger" style={{ flex: 1 }}>
-                            Import
+                            Importer UFC
                             <mdui-icon slot="icon" style={fixIcon}>
                                 <PublishIcon />
                             </mdui-icon>
                         </mdui-button>
                         <mdui-dropdown>
                             <mdui-button variant='tonal' slot="trigger" style={{ flex: 1 }}>
-                                Export
+                                Exporter UFC
                                 <mdui-icon slot="icon" style={fixIcon}>
                                     <GetAppIcon />
                                 </mdui-icon>
                             </mdui-button>
                             <mdui-menu >
                                 <mdui-menu-item onClick={handleExportJSON}>JSON</mdui-menu-item>
-                                <mdui-menu-item onClick={handleExportEncrypted}>Encrypted</mdui-menu-item>
+                                <mdui-menu-item onClick={handleExportEncrypted}>Chiffré</mdui-menu-item>
                                 <mdui-menu-item onClick={handleExportBase64}>Base64</mdui-menu-item>
                             </mdui-menu>
                         </mdui-dropdown>
-                        <mdui-tooltip variant="rich" onClick={deleteState} placement='top-end' content="Delete local UFC data (logout without UFC invalidation)">
+                        <mdui-tooltip variant="rich" onClick={deleteState} placement='top-end' content="Déconnexion soft (local)">
                             <mdui-button-icon variant="outlined">
                                 <LogoutIcon />
                             </mdui-button-icon>
@@ -340,26 +356,34 @@ function App() {
                         className="mainInput"
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
+                        placeholder="Collez ou importez ici vos données UFC Facebook..."
+                        style={{
+                            fontSize: '1.08rem',
+                            border: 'none',
+                            boxShadow: '0 2px 12px rgba(37,99,235,0.10), inset 0 0 0 .0625rem #334155',
+                            background: 'linear-gradient(135deg, #101828 80%, #16213e 100%)',
+                            color: '#e0e7ef'
+                        }}
                     />
                     <div className="action">
                         <mdui-button onClick={handleCopy} variant='filled' slot="trigger" style={{ flex: 1 }}>
-                            Copy to clipboard
+                            Copier
                             <mdui-icon slot="icon" style={fixIcon}>
                                 <AssignmentIcon />
                             </mdui-icon>
                         </mdui-button>
                         <mdui-button onClick={handleSave} variant='filled' slot="trigger" style={{ flex: 1 }}>
-                            Save to file
+                            Sauvegarder
                             <mdui-icon slot="icon" style={fixIcon}>
                                 <SaveAsIcon />
                             </mdui-icon>
                         </mdui-button>
-                        <mdui-tooltip variant="rich" placement='top-end' content="Paste from clipboard">
+                        <mdui-tooltip variant="rich" placement='top-end' content="Coller depuis le presse-papier">
                             <mdui-button-icon onClick={handlePasteData} variant="outlined">
                                 <ContentPasteIcon />
                             </mdui-button-icon>
                         </mdui-tooltip>
-                        <mdui-tooltip variant="rich" placement='top-end' content="Clear">
+                        <mdui-tooltip variant="rich" placement='top-end' content="Effacer">
                             <mdui-button-icon onClick={handleClear} variant="outlined">
                                 <ClearIcon />
                             </mdui-button-icon>
