@@ -15,7 +15,7 @@
         "default_icon": {
             "16": "assets/logo/logo.png",
             "32": "assets/logo/logo.png",
-            "48": "assets/logo/48.png",
+            "48": "assets/logo/logo.png",
             "64": "assets/logo/logo.png",
             "128": "assets/logo/logo.png"
         }
@@ -23,7 +23,7 @@
     "icons": {
         "16": "assets/logo/logo.png",
         "32": "assets/logo/logo.png",
-        "48": "assets/logo/48.png",
+        "48": "assets/logo/logo.png",
         "64": "assets/logo/logo.png",
         "128": "assets/logo/logo.png"
     },
